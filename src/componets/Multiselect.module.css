@@ -1,0 +1,146 @@
+.ml-container{
+    width: 100%;
+    position: relative;
+    user-select: none;
+    /* you can remove this oly for this project */
+    translate: -.1rem;  
+}
+
+@media screen and (min-width: 1240px) {
+    .ml-container{
+        translate: -.05rem;
+    }
+}
+
+/* hide drop menu toogle input */
+input[id="toggle-ml-drop-menu"]{
+    display: none;
+}
+
+/*  */
+ul#ml-multiselect{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    border: 1px solid grey;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* hide by default */
+    transition: all .2s;
+    max-height: 25vh;
+    overflow-y: scroll;
+    overflow-x: none;
+}
+ul#ml-multiselect::-webkit-scrollbar{
+    display: block;
+    width: 7px;
+}
+ul#ml-multiselect::-webkit-scrollbar-track{
+    background-color: #ebebeb;
+}
+ul#ml-multiselect::-webkit-scrollbar-thumb{
+    display: block;
+    background-color: #c4c5c4;
+    border-radius: 1rem;
+}
+ul#ml-multiselect input{
+    display: none;
+}
+ul#ml-multiselect > li label{
+    padding: .3rem .5rem;
+    background-color: #ebebeb;
+    text-transform: capitalize;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.ml-light{
+    color: #444;
+}
+.ml-2nd-describe{
+    font-size: .75rem;
+    text-transform: none;
+}
+ul#ml-multiselect > li label:hover{
+    background-color: #c4f3bb;
+    cursor: pointer;
+}
+
+ul#ml-multiselect > li input:checked + label{
+    background-color: #30a019;
+    color: white;
+}
+
+
+/* ml-dropdown-label */
+.ml-dropdown-label{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    padding: .2rem .5rem;
+    z-index: 99999;
+    cursor: pointer;
+}
+.ml-dropdown-label > input{
+    cursor: pointer;
+}
+.ml-dropdown-label > .preview-container{
+    font-size: .8rem;
+    margin-top: .15rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: auto;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); */
+}
+.ml-dropdown-label > .preview-container p{
+    line-height: 1.8rem;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 450;
+}
+.ml-dropdown-label > .preview-container span{
+    width: max-content;
+    padding: .2rem .4rem;
+    margin: .2rem .1rem;
+    background-color: #d0d1d0;
+    border-radius: .8rem;
+    line-height: 1rem;
+}
+
+.ml-dropdown-label input{
+    outline: none;
+    border: none;
+}
+.ml-dropdown-label > div:last-child{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+}
+.ml-dropdown-label div > .ml-icon-arrow{
+    display: inline-block;
+    justify-self: center;
+    align-self: center;
+    width : 6px;
+    height: 6px;
+    border: 2px solid #111;
+    rotate: 45deg;
+    border-top: none;
+    border-left: none;
+    transition: all .1s;
+    translate: -.5rem;
+}
+/* show drop menu on input checked */
+input[id="toggle-ml-drop-menu"]:checked ~ ul#ml-multiselect{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+/* 
+input[id="toggle-ml-drop-menu"]:checked + label .ml-icon-arrow{
+    rotate: 225deg;
+} */
